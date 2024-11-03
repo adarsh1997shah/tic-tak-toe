@@ -30,7 +30,7 @@ function Game({ handleBack }) {
 
       {isSinglePlayer && userPlayer == null ? (
         <div className="choose-player-wrap">
-          <div className="status-message">Choose player</div>
+          <div className="status-message">Choose your player</div>
 
           <div className="action-cta-wrap">
             <button data-id="1" type="button" className="btn" onClick={handlePickPlayer}>

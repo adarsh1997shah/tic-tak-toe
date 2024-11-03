@@ -17,15 +17,17 @@ const Square = ({ rowIdx, colIdx }) => {
   const isPlayer1 = value === 1;
   const isWinningSquare = winningSquare.includes(absoluteIndex);
 
+  const isDisabled = winner != null || isComputerPlaying || board[absoluteIndex] != null;
+
   return (
     <button
       type="button"
-      className={`square ${isPlayer1 ? 'text-green' : 'text-orange'} ${
-        isWinningSquare ? 'winning' : ''
+      className={`square${isPlayer1 ? ' text-green' : ' text-orange'}${
+        isWinningSquare ? ' winning' : ''
       }`}
       data-index={absoluteIndex}
       onClick={handleTurn}
-      disabled={winner != null || isComputerPlaying}
+      disabled={isDisabled}
     >
       {PLAYER_MAP[value]}
     </button>
