@@ -4,6 +4,9 @@ $blue: #4c43d4;
 
 * {
   font-family: cursive;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
@@ -18,6 +21,7 @@ button {
   background: none;
   border: none;
   outline: none;
+
   &:hover {
     cursor: pointer;
   }
@@ -29,10 +33,21 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 0 20px;
+  row-gap: 40px;
+  height: 100vh;
+
+  h1 {
+    margin-top: 20px;
+  }
 
   h3 {
     text-align: center;
   }
+}
+
+.action-cta-wrap {
+  display: flex;
+  column-gap: 10px;
 }
 
 .text-green {
@@ -43,57 +58,39 @@ button {
   color: $orange;
 }
 
-.history-wrapper {
-  width: 300px;
-  text-align: center;
-  margin-bottom: 20px;
-  .history {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    li {
-      list-style: none;
-      text-align: left;
-      &:before {
-        content: '';
-        border-radius: 50%;
-        display: inline-block;
-        height: 5px;
-        width: 5px;
-        background-color: $green;
-        margin-right: 4px;
-        margin-bottom: 1px;
-      }
+.choose-mode-wrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: center;
+  height: 40%;
+}
 
-      .btn-move {
-        color: #fff;
-        &.active {
-          font-weight: bold;
-          color: $green;
-        }
-      }
-    }
-  }
+.choose-player-wrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .status-message {
-  margin-bottom: 30px;
   font-size: 1.2rem;
   font-weight: lighter;
+  text-align: center;
+
   span {
     font-weight: normal;
   }
 }
 
-.btn-reset {
+.btn {
   font-size: 0.8rem;
   color: #fff;
   border-radius: 15px;
   padding: 12px 18px;
-  margin-top: 25px;
   transition: all 0.2s;
   background-color: $blue;
   box-shadow: 0px 0px 0px 1px $orange;
+
   &.active {
     background-color: $orange;
     box-shadow: none;
@@ -101,13 +98,17 @@ button {
 }
 
 .board {
+  margin-top: 35px;
+
   .board-row {
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid #fff;
+
     &:last-child {
       border-bottom: none;
     }
+
     .square {
       width: 80px;
       height: 80px;
@@ -116,11 +117,14 @@ button {
       padding: 0;
       overflow: hidden;
       transition: all 0.2s;
+
       &:last-child {
         border-right: none;
       }
+
       &.winning {
         animation: scaleText 1.4s infinite;
+
         @keyframes scaleText {
           0% {
             transform: 2.5rem;
